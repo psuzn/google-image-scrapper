@@ -4,6 +4,8 @@ dist/*
 # C extensions
 *.so
 
+*.log
+
 # pycharm
 .idea/
 .idea
