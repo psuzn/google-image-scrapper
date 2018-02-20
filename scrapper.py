@@ -1,6 +1,6 @@
 import requests
 from selenium import webdriver
-import os,time,base64
+import os,time,base64,getpass
 from bs4 import BeautifulSoup
 
 thisPath=os.path.dirname( os.path.realpath(__file__) )
@@ -8,11 +8,6 @@ picklefile="{}/session.pickle".format(thisPath)
 imageFile='{}/images.txt'.format(thisPath)
 separator=" "
 downloadDirectory='{}/download'.format(thisPath)
-
-
-
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
-
 
 def getImages():
     with open(imageFile, 'r') as myfile:
@@ -33,7 +28,18 @@ def getSimilarImagePageLink(url):
     else:
         return None
     
-
+def googleLogin():
+    googleusername=input("enter google email\n")
+    password=getpass.getpass(prompt="password for {}\n".format(googleusername))
+    if not (googleLogin and password):
+        return
+    selenumdriver.get("https://accounts.google.com/signin")
+    selenumdriver.find_element_by_css_selector("input[aria-label='Email or phone']").send_keys(googleusername)
+    selenumdriver.find_element_by_css_selector("div#identifierNext").click()
+    time.sleep(2)
+    selenumdriver.find_element_by_css_selector("input[type='password']").send_keys(password)
+    time.sleep(0.5)
+    selenumdriver.find_element_by_css_selector("div#passwordNext").click()
 
 def saveImg(src,name,count):
     if "data:image" in src[:20]:
@@ -89,6 +95,8 @@ def downloadFromSimilarImagesPage(url,name,maxNo):
 def main():
     global selenumdriver
     selenumdriver = webdriver.Firefox()
+    googleLogin()
+    return
     images=getImages()
     for each in images:
         if "#" not in each[0] and len(each)==3:
