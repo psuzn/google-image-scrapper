@@ -1,0 +1,4 @@
+resistor_0 100 https://media.rs-online.com/t_large/R0131772-01.jpg
+resistor_1 100 http://www.component7.com/image/cache/catalog/product/passive_component/1%20ohm%20Resistance%20Pack-0.25Watt%20(25%20Nos.)-800x800.jpg
+led_0 100 https://www.kitronik.co.uk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/3/5/3504_large_red_5mm_led.jpg
+led_1 100 https://probots.co.in/images/large/8mmWhiteLED_01_LRG.jpg
