@@ -15,6 +15,10 @@ build
 eggs
 parts
 bin
+env
+env/*
+download/
+download/*
 var
 sdist
 develop-eggs
