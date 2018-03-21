@@ -1,6 +1,7 @@
 # google-image-scrapper
 > Similar image scrapper from google reverse image search using selenium 
 
+The idea is you'll give a link to a image and this script will search similar image to the image on that link using google reverse image search and downloads for you.
 ## Table of Contents
 
 - [Install](#install)
